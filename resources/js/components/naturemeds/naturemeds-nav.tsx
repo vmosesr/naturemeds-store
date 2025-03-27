@@ -6,17 +6,17 @@ const Navigation = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <nav className="relative p-4">
+        <nav className="relative p-4 shadow-md">
             {/* Navbar container */}
             <div className="flex justify-between items-center">
 
-                {/* Hamburger Button (Only Visible on Small Screens) */}
                 <button 
-                    className="md:hidden text-white"
+                    className="md:hidden menu-button-media-screen"
                     onClick={() => setMenuOpen(!menuOpen)}
                     aria-label="Toggle Menu"
+                    aria-expanded={menuOpen}
                 >
-                    {menuOpen ? <X size={24} /> : <Menu size={24} />}
+                    {menuOpen ? <X size={28} /> : <Menu size={28} />}
                 </button>
 
                 {/* Desktop Navigation Links (Hidden on Small Screens) */}
@@ -26,28 +26,33 @@ const Navigation = () => {
             </div>
 
             {/* Mobile Navigation Menu (Visible when menuOpen is true) */}
-            {menuOpen && (
-                <div className="absolute top-full left-0 w-full shadow-md md:hidden flex flex-col items-center gap-4 p-4 transition-all navigation-links-media">
-                    <NavLinks />
-                </div>
-            )}
+            <div className={`absolute top-full left-0 w-full bg-green-600 md:hidden transition-all duration-300 ${
+                    menuOpen ? "block" : "hidden"}`} >
+                        
+                <NavLinks mobile={true} />
+            </div>
         </nav>
     );
 };
 
-// Navigation Links Component
-const NavLinks = () => (
-    <div className="flex flex-col md:flex-row items-center gap-4">
-        {["Products", "Clinics", "Checkouts", "Articles", "Support"].map((item) => (
-            <Link 
-                key={item} 
-                href={route('register')} 
-                className="navigation-links"
-            >
-                {item}
-            </Link>
-        ))}
-    </div>
-);
+const NavLinks = ({ mobile = false }) => {
+    const links = [
+        { name: "Products", route: route('products') },
+        { name: "Clinics", route: route('clinics') },
+        { name: "Checkouts", route: route('checkouts') },
+        { name: "Articles", route: route('articles') },
+        { name: "Support", route: route('support') },
+    ];
+
+    return (
+        <div className={`flex ${mobile ? "flex-col items-center gap-4 py-4" : "flex-row gap-4"}`}>
+            {links.map((link) => (
+                <Link key={link.name} href={link.route} className="navigation-links">
+                    {link.name}
+                </Link>
+            ))}
+        </div>
+    );
+};
 
 export default Navigation;
