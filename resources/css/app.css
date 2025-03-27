@@ -196,6 +196,11 @@
     display: none;
 }
 
+.navigation-links:hover{
+    border-bottom: 1px solid var(--color-dominant); 
+    transition: .4s;
+}
+
 .welcome-section {
     position: relative;
     display: inline-block;
@@ -273,6 +278,7 @@
     font-size: 1.1rem;
     color: #555;
     line-height: 1.6;
+    margin-bottom: 3rem;
 }
 
 
@@ -308,6 +314,12 @@
 
 .contact-btn:hover {
     background: linear-gradient(135deg, #218838, #1e7e34);
+}
+
+
+.top-doctors-section{
+    background-color: var(--color-background-dominant);
+    color: var(--color-dominant);
 }
 
 
