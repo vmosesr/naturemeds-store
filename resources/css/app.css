@@ -196,10 +196,30 @@
     display: none;
 }
 
-.navigation-links:hover{
+.navigation-links {
+    margin-left: 1.2rem;
+    border: 1px solid transparent; 
+    box-sizing: border-box; 
+    text-decoration: none; 
+    color: var(--color-dominant); 
+    z-index: 1000;
+}
+
+.navigation-links:hover {
     border-bottom: 1px solid var(--color-dominant); 
     transition: .4s;
 }
+
+.menu-button-media-screen{
+    color: #ffffff;
+}
+
+/* .navigation-links-media{
+    background-color: var(--color-background-dominant);
+    z-index: 1000;
+} */
+
+
 
 .welcome-section {
     position: relative;
@@ -232,7 +252,7 @@
     right: 0; 
     height: 90vh; 
     max-width: 40%; 
-    z-index: 0; 
+    /* z-index: 0;  */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -281,6 +301,29 @@
     margin-bottom: 3rem;
 }
 
+._auth-links {
+    margin-left: 2rem;
+    border: 1px solid transparent; /* Ensure border exists before hover */
+    box-sizing: border-box; /* Prevents size shift */
+}
+
+._auth-links:hover {
+    border-color: var(--color-background-dominant);
+}
+
+.auth-links {
+    background-color: var(--color-background-dominant);
+    color: var(--color-dominant);
+    border: 1px solid var(--color-background-dominant); /* Set border initially */
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.auth-links:hover {
+    background-color: var(--color-dominant);
+    color: var(--color-background-dominant);
+    border-color: var(--color-background-dominant);
+}
 
 
 
@@ -322,6 +365,17 @@
     color: var(--color-dominant);
 }
 
+.top-doctors-head{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.top-doctors-link{
+    text-transform: uppercase;
+    font-size: small;
+    border: 1px solid white;
+    border-radius: 7px;
+}
 
 
 
@@ -348,13 +402,17 @@
 }
 
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
     .navigation-text-logo {
         display: none;
     }
     .navigation-text-logo-media-screen {
         display: block;
         color: var(--color-dominant);
+    }
+
+    .navigation-links-media{
+        background-color: #ffffff;
     }
 
     .welcome-section {
