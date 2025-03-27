@@ -1,10 +1,10 @@
-import { type SharedData } from '@/types';
-import { Head, Link, usePage } from '@inertiajs/react';
+// import { type SharedData } from '@/types';
+import { Head, Link } from '@inertiajs/react'; //i have removed "usePage" from the import
+import TopDoctors from '../pages/naturemeds/pages/topdoctors'; 
 import welcomeImage from "../../assets/images/aspidistra.png";
 
-
 export default function Welcome() {
-    const { auth } = usePage<SharedData>().props;
+    // Removed unused 'auth' variable assignment
 
     return (
         <>
@@ -24,35 +24,31 @@ export default function Welcome() {
                             </p>
                         </div>
                         <div className="navigation-items flex items-center gap-4">
-                            {auth.user ? (
-                                <Link
-                                    href={route('dashboard')}
-                                    className="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
-                                >
-                                    Dashboard
-                                </Link>
-                            ) : (
-                                <>
-                                    <Link
-                                        href={route('login')}
-                                        className="inline-block rounded-sm border border-transparent px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#19140035] dark:text-[#EDEDEC] dark:hover:border-[#3E3E3A]"
-                                    >
-                                        Log in
-                                    </Link>
-                                    <Link
-                                        href={route('register')}
-                                        className="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
-                                    >
-                                        Register
-                                    </Link>
-                                </>
-                            )}
+                            <Link href={route('register')}
+                                className="inline-block px-3 py-1 text-sm leading-normal text-white navigation-links">
+                                Products
+                            </Link>
+                            <Link href={route('register')}
+                                className="inline-block px-3 py-1 text-sm leading-normal text-white navigation-links">
+                                Clinics
+                            </Link>
+                            <Link href={route('register')}
+                                className="inline-block px-3 py-1 text-sm leading-normal text-white navigation-links">
+                                Checkouts
+                            </Link>
+                            <Link href={route('register')}
+                                className="inline-block px-3 py-1 text-sm leading-normal text-white navigation-links">
+                                Articles
+                            </Link>
+                            <Link href={route('register')}
+                                className="inline-block px-3 py-1 text-sm leading-normal text-white navigation-links">
+                                Support
+                            </Link>
                         </div>
                     </nav>
                 </header>
 
                 <main className="w-full">
-                    
                     <div className="welcome-section">
                         <p className="welcome-head text-0.5xl">MORE SHIPPED</p>
 
@@ -66,7 +62,7 @@ export default function Welcome() {
                                         <span className="text-warning">★★★★☆</span>
                                         <span className="text-muted ms-2">(120 reviews)</span>
                                     </div>
-                                    <button className="mt-4 px-6 py-2 bg-green-600 text-white rounded hover:pointer">
+                                    <button className="mt-4 px-6 py-2 bg-green-600 text-white rounded">
                                         Add to Cart
                                     </button>
                                 </div>
@@ -78,6 +74,7 @@ export default function Welcome() {
                         </div>
                     </div>
 
+                    {/* About Section */}
                     <section className="py-12 bg-gray-100">
                         <div className="container mx-auto about-section">
                             <h2 className="about-title">About NatureMeds</h2>
@@ -85,59 +82,27 @@ export default function Welcome() {
                                 <p className="about-text">
                                     NatureMeds Store is an online platform designed to connect natural herbal doctors 
                                     across Africa, allowing users to compare services, purchase herbal products, and 
-                                    access shipping services. This platform aims to bridge the gap between herbal 
-                                    practitioners and customers seeking natural remedies, ensuring authenticity, 
-                                    convenience, and accessibility.
+                                    access shipping services.
                                 </p>
                             </div>
-                        </div>
-                    </section>
-
-                     {/* Top Doctors Section */}
-                     <section className="py-12 bg-white">
-                        <div className="container mx-auto text-center">
-                            <h2 className="text-3xl font-bold mb-6">Top Doctors</h2>
-                            <div className="grid md:grid-cols-3 gap-8">
-                                
-                                {/* Doctor 1 */}
-                                <div className="doctor-card p-4 shadow-lg rounded-lg">
-                                    <img src={welcomeImage} alt="Dr. John Doe" className="w-full h-48 object-cover rounded" />
-                                    <h3 className="text-xl font-semibold mt-3">Dr. John Doe</h3>
-                                    <p className="text-gray-600">Herbal Specialist</p>
-                                    <p className="text-gray-500">Kenya</p>
-                                    <p className="text-gray-700 font-bold">Green Nature Remedies</p>
-                                    <button className="contact-btn mt-3 px-4 py-2 bg-green-500 text-white rounded-lg">Contact</button>
-                                </div>
-
-                                {/* Doctor 2 */}
-                                <div className="doctor-card p-4 shadow-lg rounded-lg">
-                                    <img src={welcomeImage} alt="Dr. Amina Yusuf" className="w-full h-48 object-cover rounded" />
-                                    <h3 className="text-xl font-semibold mt-3">Dr. Amina Yusuf</h3>
-                                    <p className="text-gray-600">Traditional Healer</p>
-                                    <p className="text-gray-500">Nigeria</p>
-                                    <p className="text-gray-700 font-bold">Healing Roots Pharmacy</p>
-                                    <button className="contact-btn mt-3 px-4 py-2 bg-green-500 text-white rounded-lg">Contact</button>
-                                </div>
-
-                                {/* Doctor 3 */}
-                                <div className="doctor-card p-4 shadow-lg rounded-lg">
-                                    <img src={welcomeImage} alt="Dr. Kwame Mensah" className="w-full h-48 object-cover rounded" />
-                                    <h3 className="text-xl font-semibold mt-3">Dr. Kwame Mensah</h3>
-                                    <p className="text-gray-600">Herbal Pharmacist</p>
-                                    <p className="text-gray-500">Ghana</p>
-                                    <p className="text-gray-700 font-bold">Nature's Cure Hub</p>
-                                    <button className="contact-btn mt-3 px-4 py-2 bg-green-500 text-white rounded-lg">Contact</button>
-                                </div>
-
+                            <div className="auth-links-home">
+                                <Link href={route('login')}
+                                    className="inline-block rounded-sm border px-5 py-1.5 text-sm leading-normal text-white hover:border-white">
+                                    Log in
+                                </Link>
+                                <Link href={route('register')}
+                                    className="inline-block rounded-sm border px-5 py-1.5 text-sm leading-normal text-white hover:border-white">
+                                    Register
+                                </Link>
                             </div>
                         </div>
                     </section>
 
+                    {/* Include the TopDoctors Component */}
+                    <TopDoctors />
+
                 </main>
-
-
             </div>
-
         </>
     );
 }
