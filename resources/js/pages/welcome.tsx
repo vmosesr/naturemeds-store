@@ -1,6 +1,7 @@
 // import { type SharedData } from '@/types';
 import { Head, Link } from '@inertiajs/react'; //i have removed "usePage" from the import
-import TopDoctors from '../pages/naturemeds/pages/topdoctors'; 
+import TopDoctors from '../components/naturemeds/top-doctors'; 
+import Navigation from '../components/naturemeds/naturemeds-nav'; 
 import welcomeImage from "../../assets/images/aspidistra.png";
 
 export default function Welcome() {
@@ -14,7 +15,7 @@ export default function Welcome() {
             </Head>
             <div className="flex flex-col items-center bg-[#FDFDFC] w-full h-screen text-[#1b1b18] dark:bg-[#0a0a0a]">
                 <header className="w-full navigation-bar-all">
-                    <nav className="flex items-center justify-between w-full p-4">
+                    <nav className="flex items-center justify-between w-full p-2">
                         <div className="navigation-items">
                             <p className="navigation-text-logo">
                                 NATUREMEDS STORE
@@ -23,28 +24,9 @@ export default function Welcome() {
                                 NMS
                             </p>
                         </div>
-                        <div className="navigation-items flex items-center gap-4">
-                            <Link href={route('register')}
-                                className="inline-block px-3 py-1 text-sm leading-normal text-white navigation-links">
-                                Products
-                            </Link>
-                            <Link href={route('register')}
-                                className="inline-block px-3 py-1 text-sm leading-normal text-white navigation-links">
-                                Clinics
-                            </Link>
-                            <Link href={route('register')}
-                                className="inline-block px-3 py-1 text-sm leading-normal text-white navigation-links">
-                                Checkouts
-                            </Link>
-                            <Link href={route('register')}
-                                className="inline-block px-3 py-1 text-sm leading-normal text-white navigation-links">
-                                Articles
-                            </Link>
-                            <Link href={route('register')}
-                                className="inline-block px-3 py-1 text-sm leading-normal text-white navigation-links">
-                                Support
-                            </Link>
-                        </div>
+
+                        <Navigation />
+
                     </nav>
                 </header>
 
@@ -86,13 +68,13 @@ export default function Welcome() {
                                 </p>
                             </div>
                             <div className="auth-links-home">
-                                <Link href={route('login')}
-                                    className="inline-block rounded-sm border px-5 py-1.5 text-sm leading-normal text-white hover:border-white">
-                                    Log in
-                                </Link>
                                 <Link href={route('register')}
-                                    className="inline-block rounded-sm border px-5 py-1.5 text-sm leading-normal text-white hover:border-white">
-                                    Register
+                                    className="inline-block rounded-sm px-5 py-2 text-sm leading-normal text-black auth-links">
+                                    Get started
+                                </Link>
+                                <Link href={route('login')}
+                                    className="inline-block rounded-sm px-5 py-2 text-sm leading-normal text-black _auth-links">
+                                    Log in
                                 </Link>
                             </div>
                         </div>
