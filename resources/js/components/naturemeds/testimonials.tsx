@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Quote, Play } from 'lucide-react';
+import Thumbnail from '../../../assets/images/rosario-janza-LHI32I1iodw-unsplash.jpg';
+
 
 const testimonials = [
     {
@@ -7,7 +9,7 @@ const testimonials = [
         name: "Sarah Thompson",
         condition: "Chronic Stress",
         quote: "NatureMeds transformed my approach to wellness. The herbal treatments helped me manage stress naturally and effectively.",
-        videoThumbnail: "/api/placeholder/400/400?text=Testimonial+1",
+        videoThumbnail: Thumbnail,
         beforeAfter: {
             before: "Constant anxiety and sleepless nights",
             after: "Calm, balanced, and more energetic"
@@ -18,7 +20,7 @@ const testimonials = [
         name: "Michael Rodriguez",
         condition: "Joint Pain",
         quote: "After years of traditional treatments, I found relief through NatureMeds' holistic approach. The herbal supplements changed my life.",
-        videoThumbnail: "/api/placeholder/400/400?text=Testimonial+2",
+        videoThumbnail: Thumbnail,
         beforeAfter: {
             before: "Chronic joint pain limiting mobility",
             after: "Increased flexibility and reduced inflammation"
@@ -29,7 +31,7 @@ const testimonials = [
         name: "Elena Petrova",
         condition: "Digestive Health",
         quote: "The personalized herbal consultation helped me understand and heal my digestive issues completely naturally.",
-        videoThumbnail: "/api/placeholder/400/400?text=Testimonial+3",
+        videoThumbnail: Thumbnail,
         beforeAfter: {
             before: "Constant digestive discomfort",
             after: "Balanced gut health and improved nutrition"
