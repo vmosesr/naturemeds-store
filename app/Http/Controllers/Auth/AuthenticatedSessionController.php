@@ -30,10 +30,25 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
-
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        return $this->authenticated($request, Auth::user());
+    }
+
+    /**
+     * Determine where to redirect users after login based on their role.
+     */
+    protected function authenticated(Request $request, $user): RedirectResponse
+    {
+        return match ($user->primaryRole) {
+            'admin' => redirect()->intended('/admin/dashboard'),
+            'regional_admin' => redirect()->intended('/regional-admin/dashboard'),
+            'medical_practitioner' => redirect()->intended('/medical/dashboard'),
+            'content_moderator' => redirect()->intended('/moderator/dashboard'),
+            'logistics_manager' => redirect()->intended('/logistics/dashboard'),
+            'support_agent' => redirect()->intended('/support/dashboard'),
+            default => redirect()->intended('/dashboard'), // Default for customers
+        };
     }
 
     /**
