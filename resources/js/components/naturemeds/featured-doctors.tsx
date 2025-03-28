@@ -2,6 +2,7 @@ import React from 'react';
 import { Star, UserCheck } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
+import DoctorPicture from '../../../assets/images/bruno-rodrigues-279xIHymPYY-unsplash.jpg';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -12,7 +13,7 @@ const doctors = [
         name: "Dr. Emily Chen",
         specialty: "Herbal Oncology",
         rating: 4.8,
-        image: "/api/placeholder/400/400?text=Dr+Emily+Chen",
+        image: DoctorPicture,
         verified: true
     },
     {
@@ -20,7 +21,7 @@ const doctors = [
         name: "Dr. Raj Patel",
         specialty: "Holistic Medicine",
         rating: 4.9,
-        image: "/api/placeholder/400/400?text=Dr+Raj+Patel",
+        image: DoctorPicture,
         verified: true
     },
     {
@@ -28,7 +29,7 @@ const doctors = [
         name: "Dr. Maria Santos",
         specialty: "Herbal Nutrition",
         rating: 4.7,
-        image: "/api/placeholder/400/400?text=Dr+Maria+Santos",
+        image: DoctorPicture,
         verified: true
     },
     {
@@ -36,7 +37,7 @@ const doctors = [
         name: "Dr. Alex Johnson",
         specialty: "Herbal Psychiatry",
         rating: 4.6,
-        image: "/api/placeholder/400/400?text=Dr+Alex+Johnson",
+        image: DoctorPicture,
         verified: true
     }
 ];
