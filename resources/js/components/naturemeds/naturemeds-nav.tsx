@@ -1,41 +1,10 @@
-import { useState } from "react";
-import { Link } from "@inertiajs/react";
-import { Menu, X } from "lucide-react"; // Icons for the toggle button
+import React, { useState } from 'react';
+import { Link } from '@inertiajs/react';
+import { Menu, X } from 'lucide-react';
 
-const Navigation = () => {
+const NavigationBar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
-    return (
-        <nav className="relative p-4 shadow-md">
-            {/* Navbar container */}
-            <div className="flex justify-between items-center">
-
-                <button 
-                    className="md:hidden menu-button-media-screen"
-                    onClick={() => setMenuOpen(!menuOpen)}
-                    aria-label="Toggle Menu"
-                    aria-expanded={menuOpen}
-                >
-                    {menuOpen ? <X size={28} /> : <Menu size={28} />}
-                </button>
-
-                {/* Desktop Navigation Links (Hidden on Small Screens) */}
-                <div className="hidden md:flex items-center">
-                    <NavLinks />
-                </div>
-            </div>
-
-            {/* Mobile Navigation Menu (Visible when menuOpen is true) */}
-            <div className={`absolute top-full left-0 w-full bg-green-600 md:hidden transition-all duration-300 ${
-                    menuOpen ? "block" : "hidden"}`} >
-                        
-                <NavLinks mobile={true} />
-            </div>
-        </nav>
-    );
-};
-
-const NavLinks = ({ mobile = false }) => {
     const links = [
         { name: "Products", route: route('products') },
         { name: "Clinics", route: route('clinics') },
@@ -44,15 +13,67 @@ const NavLinks = ({ mobile = false }) => {
         { name: "Support", route: route('support') },
     ];
 
+    const NavLinks = ({ mobile = false }) => {
+        return (
+            <div className={`flex ${mobile 
+                ? "flex-col items-start gap-4 py-4 px-4" 
+                : "flex-row gap-4"}`}>
+                {links.map((link) => (
+                    <Link 
+                        key={link.name} 
+                        href={link.route} 
+                        className="hover:text-green-700 transition-colors duration-300"
+                    >
+                        {link.name}
+                    </Link>
+                ))}
+            </div>
+        );
+    };
+
     return (
-        <div className={`flex ${mobile ? "flex-col items-center gap-4 py-4" : "flex-row gap-4"}`}>
-            {links.map((link) => (
-                <Link key={link.name} href={link.route} className="navigation-links">
-                    {link.name}
-                </Link>
-            ))}
-        </div>
+        <header className="w-full bg-white shadow-md">
+            <nav className="relative p-4 navigation-bar-all">
+                <div className="flex justify-between items-center">
+                    {/* Logo Section */}
+                    <div className="flex items-center">
+                        <span className="text-xl font-bold hidden md:block">
+                            NATUREMEDS STORE
+                        </span>
+                        <span className="text-xl font-bold md:hidden">
+                            NMS
+                        </span>
+                    </div>
+
+                    {/* Mobile Menu Toggle */}
+                    <button
+                        className="md:hidden menu-button-media-screen"
+                        onClick={() => setMenuOpen(!menuOpen)}
+                        aria-label="Toggle Menu"
+                        aria-expanded={menuOpen}
+                    >
+                        {menuOpen ? <X size={28} /> : <Menu size={28} />}
+                    </button>
+
+                    {/* Desktop Navigation Links */}
+                    <div className="hidden md:flex items-center">
+                        <NavLinks />
+                    </div>
+                </div>
+
+                {/* Mobile Navigation Menu */}
+                <div className={`
+                    absolute top-full left-0 w-full 
+                    bg-white shadow-md 
+                    md:hidden 
+                    transition-all duration-300 
+                    ${menuOpen ? "block" : "hidden"}
+                `}>
+                    <NavLinks mobile={true} />
+                </div>
+            </nav>
+        </header>
     );
 };
 
-export default Navigation;
+export default NavigationBar;
