@@ -7,7 +7,8 @@ import TopProducts from '../components/naturemeds/top-products';
 import HowItWorks from '../components/naturemeds/how-it-works';
 import Testimonials from '../components/naturemeds/testimonials';
 import BlogSection from '../components/naturemeds/blog-section';
-import TrustBadges from '../components/naturemeds/trust-badges';                                    
+import TrustBadges from '../components/naturemeds/trust-badges';   
+import Footer from '../components/naturemeds/footer';                                 
 
 export default function Welcome() {
     // Removed unused 'auth' variable assignment
@@ -41,6 +42,9 @@ export default function Welcome() {
                     {/* other contents goes here */}
 
                 </main>
+
+                <Footer />
+
             </div>
         </>
     );
