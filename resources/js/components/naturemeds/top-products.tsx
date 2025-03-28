@@ -1,5 +1,6 @@
 import React from 'react';
 import { Star, ShoppingCart } from 'lucide-react';
+import ProductImage from '../../../assets/images/micheile-henderson-XPCdZXncj64-unsplash.jpg';
 
 const products = [
     {
@@ -7,7 +8,7 @@ const products = [
         name: "Immune Boost Herbal Blend",
         price: 39.99,
         rating: 4.7,
-        image: "/api/placeholder/400/400?text=Immune+Boost+Herbs",
+        image: ProductImage,
         description: "Natural immunity enhancing herbal supplement"
     },
     {
@@ -15,7 +16,7 @@ const products = [
         name: "Stress Relief Tea",
         price: 24.99,
         rating: 4.8,
-        image: "/api/placeholder/400/400?text=Stress+Relief+Tea",
+        image: ProductImage,
         description: "Calming herbal tea blend"
     },
     {
@@ -23,7 +24,7 @@ const products = [
         name: "Organic Turmeric Capsules",
         price: 29.99,
         rating: 4.9,
-        image: "/api/placeholder/400/400?text=Turmeric+Capsules",
+        image: ProductImage,
         description: "Anti-inflammatory herbal supplement"
     },
     {
@@ -31,7 +32,7 @@ const products = [
         name: "Sleep Support Tincture",
         price: 34.99,
         rating: 4.6,
-        image: "/api/placeholder/400/400?text=Sleep+Support+Tincture",
+        image: ProductImage,
         description: "Natural sleep aid herbal extract"
     },
     {
@@ -39,7 +40,7 @@ const products = [
         name: "Digestive Health Probiotics",
         price: 44.99,
         rating: 4.5,
-        image: "/api/placeholder/400/400?text=Digestive+Probiotics",
+        image: ProductImage,
         description: "Herbal probiotic blend for gut health"
     },
     {
@@ -47,7 +48,7 @@ const products = [
         name: "Energy Boost Herbal Mix",
         price: 36.99,
         rating: 4.7,
-        image: "/api/placeholder/400/400?text=Energy+Boost+Herbs",
+        image: ProductImage,
         description: "Natural energy-enhancing herbal supplement"
     }
 ];
