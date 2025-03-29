@@ -41,13 +41,13 @@ class AuthenticatedSessionController extends Controller
     protected function authenticated(Request $request, $user): RedirectResponse
     {
         return match ($user->primaryRole) {
-            'admin' => redirect()->intended('/admin/dashboard'),
-            'regional_admin' => redirect()->intended('/regional-admin/dashboard'),
-            'medical_practitioner' => redirect()->intended('/medical/dashboard'),
-            'content_moderator' => redirect()->intended('/moderator/dashboard'),
-            'logistics_manager' => redirect()->intended('/logistics/dashboard'),
-            'support_agent' => redirect()->intended('/support/dashboard'),
-            default => redirect()->intended('/dashboard'), // Default for customers
+            'admin' => redirect()->route('admin.dashboard'),
+            'regional_admin' => redirect()->route('regional-admin.dashboard'),
+            'medical_practitioner' => redirect()->route('medical-practitioner.dashboard'),
+            'content_moderator' => redirect()->route('content-moderator.dashboard'),
+            'logistics_manager' => redirect()->route('logistics-manager.dashboard'),
+            'support_agent' => redirect()->route('support-agent.dashboard'),
+            default => redirect()->route('customer.dashboard'),
         };
     }
 

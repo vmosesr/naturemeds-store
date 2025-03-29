@@ -22,7 +22,6 @@ return Application::configure(basePath: dirname(__DIR__))
             HandleAppearance::class,
             HandleInertiaRequests::class,
             AddLinkHeadersForPreloadedAssets::class,
-            CheckRole::class, // Middleware registration
             EnsureUserHasRole::class,
         ]);
     })

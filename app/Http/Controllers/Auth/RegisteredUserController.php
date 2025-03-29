@@ -43,9 +43,8 @@ class RegisteredUserController extends Controller
         ]);
 
         $user->assignRole('customer');
-
         Auth::login($user);
-
-        return to_route('customer');
+    
+        return redirect()->route('customer.dashboard'); // Changed from to_route('customer')
     }
 }

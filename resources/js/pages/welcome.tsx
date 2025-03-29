@@ -11,7 +11,15 @@ import TrustBadges from '../components/naturemeds/trust-badges';
 import Footer from '../components/naturemeds/footer';                                 
 
 export default function Welcome() {
-    // Removed unused 'auth' variable assignment
+    // Check if the user is authenticated
+    const isAuthenticated = true; // Replace this with actual authentication logic
+
+    if (!isAuthenticated) {
+        // Redirect to login or another page
+        window.location.href = '/login'; // Replace '/login' with your desired route
+        return null;
+    }
+    
 
     return (
         <>

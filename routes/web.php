@@ -25,8 +25,8 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
-        return Inertia::render('dashboard');
-    })->name('dashboard');
+        return Inertia::render('/naturemeds/users/customer/dashboard');
+    })->name('customer.dashboard');
 });
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
@@ -34,28 +34,28 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     // Other admin routes
 });
 
-Route::middleware(['auth', 'role:regional_admin'])->prefix('regional-admin')->group(function () {
-    Route::get('/dashboard', [RegionalAdminController::class, 'dashboard'])->name('regional.dashboard');
+Route::middleware(['auth', 'role:regional_admin'])->prefix('neturemeds/users/regional-admin')->group(function () {
+    Route::get('/dashboard', [RegionalAdminController::class, 'dashboard'])->name('regional-admin.dashboard');
 });
 
-Route::middleware(['auth', 'role:medical_practitioner'])->prefix('medical-practitioner')->group(function () {
-    Route::get('/dashboard', [MedicalPractitioner::class, 'dashboard'])->name('regional.dashboard');
+Route::middleware(['auth', 'role:medical_practitioner'])->prefix('neturemeds/users/medical-practitioner')->group(function () {
+    Route::get('/dashboard', [MedicalPractitioner::class, 'dashboard'])->name('medical-practitioner.dashboard');
 });
 
-Route::middleware(['auth', 'role:logistics_manager'])->prefix('logistics-manager')->group(function () {
-    Route::get('/dashboard', [LogisticManager::class, 'dashboard'])->name('regional.dashboard');
+Route::middleware(['auth', 'role:logistics_manager'])->prefix('neturemeds/users/logistics-manager')->group(function () {
+    Route::get('/dashboard', [LogisticManager::class, 'dashboard'])->name('logistics-manager.dashboard');
 });
 
-Route::middleware(['auth', 'role:support_agent'])->prefix('support-agent')->group(function () {
+Route::middleware(['auth', 'role:support_agent'])->prefix('neturemeds/users/support-agent')->group(function () {
     Route::get('/dashboard', [SupportAgent::class, 'dashboard'])->name('regional.dashboard');
 });
 
-Route::middleware(['auth', 'role:content_moderator'])->prefix('content-moderator')->group(function () {
-    Route::get('/dashboard', [ContentModerator::class, 'dashboard'])->name('regional.dashboard');
+Route::middleware(['auth', 'role:content_moderator'])->prefix('neturemeds/users/content-moderator')->group(function () {
+    Route::get('/dashboard', [ContentModerator::class, 'dashboard'])->name('support-agent.dashboard');
 });
 
-Route::middleware(['auth', 'role:customer'])->prefix('customer')->group(function () {
-    Route::get('/dashboard', [Customer::class, 'dashboard'])->name('regional.dashboard');
+Route::middleware(['auth', 'role:customer'])->prefix('neturemeds/users/customer')->group(function () {
+    Route::get('/dashboard', [Customer::class, 'dashboard'])->name('customer.dashboard');
 });
 
 
